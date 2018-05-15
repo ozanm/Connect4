@@ -30,15 +30,28 @@ class connectFour():
         self.screen_height = height
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         pygame.display.set_caption("Connect4 Game By Mikey Jacobs And Ozan Mirza")
+        self.black = GameSprite(self.screen, '4row_black.png', (150,400))
+        self.red = GameSprite(self.screen, '4row_red.png', (850,400))
 
-    def run(self):
+    def run(self, running):
+        print "starting clock"
         clock = pygame.time.Clock()
 
+        while running == True:
+            print "ticking clock"
+            clock.tick(30)
+            print "filling screen with color"
+            self.screen.fill((0, 255, 255))
+            print "drawing black"
+            self.black.draw()
+            print "drawign red"
+            self.red.draw()
+            print "flipping screeen"
+            pygame.display.flip()
 
-while True:
-    play = raw_input("Would you like to play Connect4 by Mikey Jacobs and Ozan Mirza? (y/n): ")
-    if play == "y":
-        game = connectFour(1000, 500)
-        game.run()
-    elif play == "n":
-        sys.exit(0)
+play = raw_input("Would you like to play Connect4 by Mikey Jacobs and Ozan Mirza? (y/n): ")
+if play == "y":
+    game = connectFour(800, 600)
+    game.run(True)
+elif play == "n":
+    sys.exit(0)
