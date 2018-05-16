@@ -50,5 +50,5 @@ if play == "y":
     game.run(True)
 elif play == "n":
     sys.exit(0)
-else play != "y" or play != "n":
+else:
     sys.exit(1)
