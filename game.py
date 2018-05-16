@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import *
 import sys # Imports the System Module
 import random
+import time
 
 class GameSprite(pygame.sprite.Sprite):
 
@@ -34,20 +35,14 @@ class connectFour():
         self.red = GameSprite(self.screen, '4row_red.png', (850,400))
 
     def run(self, running):
-        print "starting clock"
-        clock = pygame.time.Clock()
-
-        while running == True:
-            print "ticking clock"
+        for i in range(100):
+            clock = pygame.time.Clock()
             clock.tick(30)
-            print "filling screen with color"
             self.screen.fill((0, 255, 255))
-            print "drawing black"
             self.black.draw()
-            print "drawign red"
             self.red.draw()
-            print "flipping screeen"
             pygame.display.flip()
+            time.sleep(1)
 
 play = raw_input("Would you like to play Connect4 by Mikey Jacobs and Ozan Mirza? (y/n): ")
 if play == "y":
@@ -55,3 +50,5 @@ if play == "y":
     game.run(True)
 elif play == "n":
     sys.exit(0)
+else play != "y" or play != "n":
+    sys.exit(1)
