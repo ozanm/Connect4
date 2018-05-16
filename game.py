@@ -26,7 +26,6 @@ class GameSprite(pygame.sprite.Sprite):
 
 class connectFour():
     def __init__(self, width, height):
-        pygame.init()
         self.screen_width = width
         self.screen_height = height
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
@@ -35,14 +34,14 @@ class connectFour():
         self.red = GameSprite(self.screen, '4row_red.png', (850,400))
 
     def run(self, running):
-        for i in range(100):
-            clock = pygame.time.Clock()
+        pygame.init()
+        clock = pygame.time.Clock()
+
+        while running == True:
             clock.tick(30)
-            self.screen.fill((0, 255, 255))
-            self.black.draw()
-            self.red.draw()
-            pygame.display.flip()
-            time.sleep(1)
+            self.screen.fill((255, 0, 0))
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT: sys.exit()
 
 play = raw_input("Would you like to play Connect4 by Mikey Jacobs and Ozan Mirza? (y/n): ")
 if play == "y":
