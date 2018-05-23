@@ -52,7 +52,7 @@ class connectFour():
 
 play = raw_input("Would you like to play Connect4 by Mikey Jacobs and Ozan Mirza? (y/n): ")
 if play == "y":
-    game = connectFour(800, 600)
+    game = connectFour(900, 700)
     game.run(True)
 elif play == "n":
     sys.exit(0)
