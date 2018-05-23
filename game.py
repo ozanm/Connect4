@@ -39,6 +39,8 @@ class connectFour():
 
         while running == True:
             clock.tick(30)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT: sys.exit()
             print "Connect4 Game Running At " + str(clock.get_fps()) + " FPS"
             self.screen.fill((0, 255, 255))
             self.black.draw()
