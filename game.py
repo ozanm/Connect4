@@ -40,7 +40,7 @@ class connectFour():
         while running == True:
             clock.tick(30)
             print "Connect4 Game Running At " + str(clock.get_fps()) + " FPS"
-            self.screen.fill((255, 0, 0))
+            self.screen.fill((0, 255, 255))
             self.black.draw()
             self.red.draw()
             pygame.display.flip()
