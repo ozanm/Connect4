@@ -1,3 +1,5 @@
+# NEXT TIME: Make the reds and blacks clickable and make the go sign for the players
+
 import pygame
 from pygame.locals import *
 import sys # Imports the System Module
@@ -30,8 +32,8 @@ class connectFour():
         self.screen_height = height
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         pygame.display.set_caption("Connect4 Game By Mikey Jacobs And Ozan Mirza")
-        self.black = GameSprite(self.screen, '4row_black.png', (150,550))
-        self.red = GameSprite(self.screen, '4row_red.png', (750,550))
+        self.black = GameSprite(self.screen, '4row_black.png', (75,700))
+        self.red = GameSprite(self.screen, '4row_red.png', (925,700))
         self.blocks = [[None, None, None, None, None, None],
                        [None, None, None, None, None, None],
                        [None, None, None, None, None, None],
@@ -42,6 +44,10 @@ class connectFour():
     def run(self, running):
         pygame.init()
         clock = pygame.time.Clock()
+
+        for i in range(0, len(self.blocks)):
+            for j in range(0, len(self.blocks[i])):
+                self.blocks[i][j] = GameSprite(self.screen, '4row_board.png', ((i * 100) + 250, (j * 100) + 200))
 
         while running == True:
             clock.tick(30)
@@ -57,16 +63,17 @@ class connectFour():
             self.black.draw()
             self.red.draw()
 
-            for i in len(self.blocks):
-                for j in len(self.blocks):
-                    self.blocks[i][j] = GameSprite(self.screen, '4row_board.png', (i * 2, j * 2))
+            for i in range(0, len(self.blocks)):
+                for j in range(0, len(self.blocks[i])):
                     self.blocks[i][j].update(0, 0)
                     self.blocks[i][j].draw()
+
+
             pygame.display.flip()
 
 play = raw_input("Would you like to play Connect4 by Mikey Jacobs and Ozan Mirza? (y/n): ")
 if play == "y":
-    game = connectFour(900, 700)
+    game = connectFour(1000, 800)
     game.run(True)
 elif play == "n":
     sys.exit(0)
