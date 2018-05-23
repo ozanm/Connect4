@@ -30,8 +30,8 @@ class connectFour():
         self.screen_height = height
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         pygame.display.set_caption("Connect4 Game By Mikey Jacobs And Ozan Mirza")
-        self.black = GameSprite(self.screen, '4row_black.png', (150,400))
-        self.red = GameSprite(self.screen, '4row_red.png', (850,400))
+        self.black = GameSprite(self.screen, '4row_black.png', (150,550))
+        self.red = GameSprite(self.screen, '4row_red.png', (750,550))
 
     def run(self, running):
         pygame.init()
