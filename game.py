@@ -39,9 +39,9 @@ class connectFour():
 
         while running == True:
             clock.tick(30)
+            print "Connect4 Game Running At " + str(clock.get_fps()) + " FPS"
             self.screen.fill((255, 0, 0))
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT: sys.exit()
+            pygame.display.flip()
 
 play = raw_input("Would you like to play Connect4 by Mikey Jacobs and Ozan Mirza? (y/n): ")
 if play == "y":
