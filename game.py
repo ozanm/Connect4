@@ -57,8 +57,8 @@ class connectFour():
             self.black.draw()
             self.red.draw()
 
-            for i in range(0, 6):
-                for j in range(0, 6):
+            for i in len(self.blocks):
+                for j in len(self.blocks):
                     self.blocks[i][j] = GameSprite(self.screen, '4row_board.png', (i * 2, j * 2))
                     self.blocks[i][j].update(0, 0)
                     self.blocks[i][j].draw()
