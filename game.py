@@ -1,5 +1,3 @@
-# NEXT TIME: Make the reds and blacks clickable and make the go sign for the players
-
 import pygame
 from pygame.locals import *
 import sys # Imports the System Module
@@ -28,6 +26,9 @@ class GameSprite(pygame.sprite.Sprite):
 
 class connectFour():
     def __init__(self, width, height):
+        pygame.init()
+        self.lobster = pygame.font.Font('Lobster-Regular.ttf', 75)
+        self.textsurface = self.lobster.render("THIS PROJECT IS BETTER THAN THE OTHERS", False, (255, 69, 0))
         self.screen_width = width
         self.screen_height = height
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
@@ -42,9 +43,10 @@ class connectFour():
                        [None, None, None, None, None, None]]
 
     def run(self, running):
-        pygame.init()
         clock = pygame.time.Clock()
-
+        up = ["Black Is Up!", "Red Is Up!"]
+        blackisup = True
+        self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
         for i in range(0, len(self.blocks)):
             for j in range(0, len(self.blocks[i])):
                 self.blocks[i][j] = GameSprite(self.screen, '4row_board.png', ((i * 100) + 250, (j * 100) + 200))
@@ -53,21 +55,25 @@ class connectFour():
             clock.tick(30)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    sys.exit()
-                elif not hasattr(event, 'key'): # if its not a key event then ignore it
-                    continue
-            print "Connect4 Game Running At " + str(clock.get_fps()) + " FPS"
+                    sys.exit(0)
+                #elif not hasattr(event, 'key'): # if its not a key event then ignore it
+                    #continue
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    pos = pygame.mouse.get_pos()
+                    if self.black.rect.collidepoint(pos) == True:
+                        self.textsurface = self.lobster.render("Now Click On The Row That You Want The Coin To Fall In!", False, (255, 69, 0))
+            print "Connect4 Game By Mikey Jacobs And Ozan Mirza Running At " + str(clock.get_fps()) + " FPS"
             self.screen.fill((0, 255, 255))
             self.black.update(0, 0)
             self.red.update(0, 0)
             self.black.draw()
             self.red.draw()
+            self.screen.blit(self.textsurface, ((self.screen_width / 3), 20))
 
             for i in range(0, len(self.blocks)):
                 for j in range(0, len(self.blocks[i])):
                     self.blocks[i][j].update(0, 0)
                     self.blocks[i][j].draw()
-
 
             pygame.display.flip()
 
