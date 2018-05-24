@@ -27,7 +27,7 @@ class GameSprite(pygame.sprite.Sprite):
 class connectFour():
     def __init__(self, width, height):
         pygame.init()
-        self.lobster = pygame.font.Font('Lobster-Regular.ttf', 75)
+        self.lobster = pygame.font.Font('Lobster-Regular.ttf', 40)
         self.textsurface = self.lobster.render("THIS PROJECT IS BETTER THAN THE OTHERS", False, (255, 69, 0))
         self.screen_width = width
         self.screen_height = height
@@ -35,6 +35,12 @@ class connectFour():
         pygame.display.set_caption("Connect4 Game By Mikey Jacobs And Ozan Mirza")
         self.black = GameSprite(self.screen, '4row_black.png', (75,700))
         self.red = GameSprite(self.screen, '4row_red.png', (925,700))
+        self.arrows =  [GameSprite(self.screen, "down.png", (255, 255)),
+                        GameSprite(self.screen, "down.png", (255, 255)),
+                        GameSprite(self.screen, "down.png", (255, 255)),
+                        GameSprite(self.screen, "down.png", (255, 255)),
+                        GameSprite(self.screen, "down.png", (255, 255)),
+                        GameSprite(self.screen, "down.png", (255, 255))]
         self.blocks = [[None, None, None, None, None, None],
                        [None, None, None, None, None, None],
                        [None, None, None, None, None, None],
@@ -60,15 +66,20 @@ class connectFour():
                     #continue
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
-                    if self.black.rect.collidepoint(pos) == True:
+                    if blackisup == True and self.black.rect.collidepoint(pos) == True:
                         self.textsurface = self.lobster.render("Now Click On The Row That You Want The Coin To Fall In!", False, (255, 69, 0))
+                        for i in range(0, len(self.arrows)):
+                            self.arrows[i].update(0, 0)
+                            self.arrows[i].draw()
+                    elif blackisup == False and self.red.rect.collidepoint(pos) == True:
+                         self.textsurface = self.lobster.render("Now Click On The Row That You Want The Coin To Fall In!", False, (255, 69, 0))
             print "Connect4 Game By Mikey Jacobs And Ozan Mirza Running At " + str(clock.get_fps()) + " FPS"
             self.screen.fill((0, 255, 255))
             self.black.update(0, 0)
             self.red.update(0, 0)
             self.black.draw()
             self.red.draw()
-            self.screen.blit(self.textsurface, ((self.screen_width / 3), 20))
+            self.screen.blit(self.textsurface, ((self.screen_width / 2) - (self.textsurface.get_rect().width / 2), 20))
 
             for i in range(0, len(self.blocks)):
                 for j in range(0, len(self.blocks[i])):
