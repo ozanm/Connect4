@@ -30,6 +30,7 @@ class GameSprite(pygame.sprite.Sprite):
 class connectFour():
     def __init__(self, width, height):
         pygame.init()
+        self.acticvated = True
         self.lobster = pygame.font.Font('Lobster-Regular.ttf', 40)
         self.textsurface = self.lobster.render("THIS PROJECT IS BETTER THAN THE OTHERS", False, (255, 69, 0))
         self.screen_width = width
@@ -214,7 +215,30 @@ class connectFour():
                     self.blocks[i][j].update(0, 0)
                     self.blocks[i][j].draw()
 
-            pygame.display.flip()
+            for i in range(0, len(grid)):
+                for j in range(0, len(grid[i])):
+                    if not grid[i][j] == None:
+                        self.playerTie()
+
+            if self.acticvated == True:
+                pygame.display.flip()
+
+    def playerTie(self):
+        self.acticvated = False
+        pygame.display.quit()
+        print "_____   ____________   _|                              /\                    ==================                                |"
+        print "  |          |                                        /  \                            |                                        |"
+        print "  |          |                                       /    \                           |                                        |"
+        print "  |          |                                      /      \                          |         |===|      /==========\        |"
+        print "  |          |              _________              /        \                         |         |===|     /            \       |"
+        print "  |          |             /                      /          \                        |           |      /              \      |"
+        print "  |          |             |                     /            \                       |           |     |================      |"
+        print "  |          |             |                    /==============\                      |           |     |                      |"
+        print "  |          |             \________           /                \                     |           |     |                      |"
+        print "  |          |                      \         /                  \                    |           |     |                      |"
+        print "  |          |                      |        /                    \                   |           |     \                 /    |"
+        print "  |          |                      |       /                      \                  |           |      \               /   |===|"
+        print "__|__        |              ________/      /                        \                 |           |       \_____________/    |===|"
 
     #def redPlayerWon(self): (METHODS TO CALL AND DEFINE LATER) def blackPlayerWon(self):
 
