@@ -107,42 +107,42 @@ class connectFour():
                                     aboutToPickRow = False
                                     self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
                                     blackisup = False
-                                    grid[i][5] = 1
+                                    grid[i][5] = "BLACK"
                                     break
                                 elif grid[i][5] == 1 and grid[i][4] == None:
                                     placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][4].rect.centery))
                                     aboutToPickRow = False
                                     self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
                                     blackisup = False
-                                    grid[i][4] = 1
+                                    grid[i][4] = "BLACK"
                                     break
                                 elif grid[i][4] == 1 and grid[i][3] == None:
                                     placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][3].rect.centery))
                                     aboutToPickRow = False
                                     self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
                                     blackisup = False
-                                    grid[i][3] = 1
+                                    grid[i][3] = "BLACK"
                                     break
                                 elif grid[i][3] == 1 and grid[i][2] == None:
                                     placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][2].rect.centery))
                                     aboutToPickRow = False
                                     self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
                                     blackisup = False
-                                    grid[i][2] = 1
+                                    grid[i][2] = "BLACK"
                                     break
                                 elif grid[i][2] == 1 and grid[i][1] == None:
                                     placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][1].rect.centery))
                                     aboutToPickRow = False
                                     self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
                                     blackisup = False
-                                    grid[i][1] = 1
+                                    grid[i][1] = "BLACK"
                                     break
                                 elif grid[i][1] == 1 and grid[i][0] == None:
                                     placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][0].rect.centery))
                                     aboutToPickRow = False
                                     self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
                                     blackisup = False
-                                    grid[i][0] = 1
+                                    grid[i][0] = "BLACK"
                                     break
                                 break
                             break
@@ -153,42 +153,42 @@ class connectFour():
                                     aboutToPickRow = False
                                     self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
                                     blackisup = True
-                                    grid[i][5] = 1
+                                    grid[i][5] = "RED"
                                     break
                                 elif grid[i][5] == 1 and grid[i][4] == None:
                                     placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][4].rect.centery))
                                     aboutToPickRow = False
                                     self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
                                     blackisup = True
-                                    grid[i][4] = 1
+                                    grid[i][4] = "RED"
                                     break
                                 elif grid[i][4] == 1 and grid[i][3] == None:
                                     placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][3].rect.centery))
                                     aboutToPickRow = False
                                     self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
                                     blackisup = True
-                                    grid[i][3] = 1
+                                    grid[i][3] = "RED"
                                     break
                                 elif grid[i][3] == 1 and grid[i][2] == None:
                                     placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][2].rect.centery))
                                     aboutToPickRow = False
                                     self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
                                     blackisup = True
-                                    grid[i][2] = 1
+                                    grid[i][2] = "RED"
                                     break
                                 elif grid[i][2] == 1 and grid[i][1] == None:
                                     placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][1].rect.centery))
                                     aboutToPickRow = False
                                     self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
                                     blackisup = True
-                                    grid[i][1] = 1
+                                    grid[i][1] = "RED"
                                     break
                                 elif grid[i][1] == 1 and grid[i][0] == None:
                                     placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][0].rect.centery))
                                     aboutToPickRow = False
                                     self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
                                     blackisup = True
-                                    grid[i][0] = 1
+                                    grid[i][0] = "RED"
                                     break
                                 break
                             break
