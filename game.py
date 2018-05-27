@@ -100,7 +100,7 @@ class connectFour():
                 for i in range(0, len(self.arrows)):
                     if self.arrows[i].rect.collidepoint(pos) == True:
                         if blackisup == True:
-                            for j in range(0, len(self.arrows)):
+                            for j in range(0, len(grid)):
                                 for k in reversed(range(0, len(grid[i]))):
                                     if grid[i][k] == None:
                                         placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][k].rect.centery))
@@ -108,8 +108,54 @@ class connectFour():
                                         self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
                                         blackisup = False
                                         grid[i][k] = 1
+                                        break
+                                    elif grid[i][k] == 1:
+                                        placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][k - 1].rect.centery))
+                                        aboutToPickRow = False
+                                        self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
+                                        blackisup = False
+                                        grid[i][k - 1] = 1
+                                        break
+                                    elif grid[i][k - 1] == 1:
+                                        placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][k - 2].rect.centery))
+                                        aboutToPickRow = False
+                                        self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
+                                        blackisup = False
+                                        grid[i][k - 2] = 1
+                                        break
+                                    elif grid[i][k - 2] == 1:
+                                        placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][k - 3].rect.centery))
+                                        aboutToPickRow = False
+                                        self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
+                                        blackisup = False
+                                        grid[i][k - 3] = 1
+                                        break
+                                    elif grid[i][k - 3] == 1:
+                                        placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][k - 4].rect.centery))
+                                        aboutToPickRow = False
+                                        self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
+                                        blackisup = False
+                                        grid[i][k - 4] = 1
+                                        break
+                                    elif grid[i][k - 4] == 1:
+                                        placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][k - 5].rect.centery))
+                                        aboutToPickRow = False
+                                        self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
+                                        blackisup = False
+                                        grid[i][k - 5] = 1
+                                        break
+                                    elif grid[i][k - 5] == 1:
+                                        placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][k - 6].rect.centery))
+                                        aboutToPickRow = False
+                                        self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
+                                        blackisup = False
+                                        grid[i][k - 6] = 1
+                                        break
+                                    break
+                                break
+                            break
                         elif blackisup == False:
-                            for j in range(0, len(self.arrows)):
+                            for j in range(0, len(grid)):
                                 for k in reversed(range(0, len(grid[i]))):
                                     if grid[i][k] == None:
                                         placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][k].rect.centery))
@@ -117,6 +163,52 @@ class connectFour():
                                         self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
                                         blackisup = True
                                         grid[i][k] = 1
+                                        break
+                                    elif grid[i][k] == 1:
+                                        placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][k - 1].rect.centery))
+                                        aboutToPickRow = False
+                                        self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
+                                        blackisup = True
+                                        grid[i][k - 1] = 1
+                                        break
+                                    elif grid[i][k - 1] == 1:
+                                        placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][k - 2].rect.centery))
+                                        aboutToPickRow = False
+                                        self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
+                                        blackisup = True
+                                        grid[i][k - 2] = 1
+                                        break
+                                    elif grid[i][k - 2] == 1:
+                                        placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][k - 3].rect.centery))
+                                        aboutToPickRow = False
+                                        self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
+                                        blackisup = True
+                                        grid[i][k - 3] = 1
+                                        break
+                                    elif grid[i][k - 3] == 1:
+                                        placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][k - 4].rect.centery))
+                                        aboutToPickRow = False
+                                        self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
+                                        blackisup = False
+                                        grid[i][k - 4] = 1
+                                        break
+                                    elif grid[i][k - 4] == 1:
+                                        placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][k - 5].rect.centery))
+                                        aboutToPickRow = False
+                                        self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
+                                        blackisup = True
+                                        grid[i][k - 5] = 1
+                                        break
+                                    elif grid[i][k - 5] == 1:
+                                        placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][k - 6].rect.centery))
+                                        aboutToPickRow = False
+                                        self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
+                                        blackisup = True
+                                        grid[i][k - 6] = 1
+                                        break
+                                    break
+                                break
+                            break
                     else:
                         continue
 
