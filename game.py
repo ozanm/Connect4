@@ -35,7 +35,7 @@ class connectFour():
         self.screen_width = width
         self.screen_height = height
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
-        pygame.display.set_caption("Connect4 Game By Mikey Jacobs And Ozan Mirza")
+        pygame.display.set_caption("Connect4 Game By Mikey Jacobs And Ozan Mirza FPS: 30")
         self.black = GameSprite(self.screen, '4row_black.png', (75,700))
         self.red = GameSprite(self.screen, '4row_red.png', (925,700))
         self.arrows =  [GameSprite(self.screen, "Black_Down_Arrow.png", (245, 100)),
@@ -57,8 +57,8 @@ class connectFour():
         blackisup = True
         aboutToPickRow = False
         clicked = False
-        placeBlack = None
-        placeRed = None
+        placeBlack = []
+        placeRed = []
         grid = [[None, None, None, None, None, None],
                 [None, None, None, None, None, None],
                 [None, None, None, None, None, None],
@@ -72,6 +72,7 @@ class connectFour():
 
         while running == True:
             clock.tick(30)
+            pygame.display.set_caption("Connect4 Game By Mikey Jacobs And Ozan Mirza FPS: " + str(clock.get_fps()))
             self.screen.fill((0, 255, 255))
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -88,7 +89,6 @@ class connectFour():
                         self.textsurface = self.lobster.render("Now Click On The Arrow That You Want The Coin To Fall In!", False, (255, 69, 0))
                         aboutToPickRow = True
                     clicked = False
-            #print "FPS: " + str(clock.get_fps())
             self.black.update(0, 0)
             self.red.update(0, 0)
             self.black.draw()
@@ -103,30 +103,32 @@ class connectFour():
                             for j in range(0, len(self.arrows)):
                                 for k in reversed(range(0, len(grid[i]))):
                                     if grid[i][k] == None:
-                                        placeBlack = (self.arrows[i].rect.centerx, self.blocks[j][5].rect.centery)
+                                        placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][k].rect.centery))
                                         aboutToPickRow = False
                                         self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
                                         blackisup = False
+                                        grid[i][k] = 1
                         elif blackisup == False:
                             for j in range(0, len(self.arrows)):
                                 for k in reversed(range(0, len(grid[i]))):
                                     if grid[i][k] == None:
-                                        placeRed = (self.arrows[i].rect.centerx, self.blocks[j][5].rect.centery)
+                                        placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][k].rect.centery))
                                         aboutToPickRow = False
                                         self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
                                         blackisup = True
+                                        grid[i][k] = 1
                     else:
                         continue
 
-            if not placeBlack == None:
-                coin = GameSprite(self.screen, "4row_black.png", placeBlack)
-                coin.rect.centerx = placeBlack[0] + 100
-                coin.update(0, 0)
+            for i in range(0, len(placeBlack)):
+                coin = GameSprite(self.screen, "4row_black.png", placeBlack[i])
+                coin.rect.centerx = placeBlack[i][0] + 100
+                coin.update(10, 0)
                 coin.draw()
-            if not placeRed == None:
-                coin = GameSprite(self.screen, "4row_red.png", placeRed)
-                coin.rect.centerx = placeRed[0] + 100
-                coin.update(0, 0)
+            for i in range(0, len(placeRed)):
+                coin = GameSprite(self.screen, "4row_red.png", placeRed[i])
+                coin.rect.centerx = placeRed[i][0] + 100
+                coin.update(10, 0)
                 coin.draw()
 
             self.screen.blit(self.textsurface, ((self.screen_width / 2) - (self.textsurface.get_rect().width / 2), 20))
@@ -137,6 +139,7 @@ class connectFour():
                     self.blocks[i][j].draw()
 
             pygame.display.flip()
+    #def redPlayerWon(self): (METHODS TO CALL AND DEFINE LATER) def blackPlayerWon(self):
 
 os.system('clear')
 play = raw_input("Would you like to play Connect4 by Mikey Jacobs and Ozan Mirza? (y/n): ")
