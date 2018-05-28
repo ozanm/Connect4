@@ -215,59 +215,31 @@ class connectFour():
                     self.blocks[i][j].update(0, 0)
                     self.blocks[i][j].draw()
 
-            if not grid[0][0] == None:
-                if not grid[0][1] == None:
-                    if not grid[0][2] == None:
-                        if not grid[0][3] == None:
-                            if not grid[0][4] == None:
-                                if not grid[0][5] == None:
-                                    if not grid[1][0] == None:
-                                        if not grid[1][1] == None:
-                                            if not grid[1][2] == None:
-                                                if not grid[1][3] == None:
-                                                    if not grid[1][4] == None:
-                                                        if not grid[1][5] == None:
-                                                            if not grid[2][0] == None:
-                                                                if not grid[2][1] == None:
-                                                                    if not grid[2][2] == None:
-                                                                         if not grid[2][3] == None:
-                                                                             if not grid[2][4] == None:
-                                                                                 if not grid[2][5] == None:
-                                                                                     if not grid[3][0] == None:
-                                                                                         if not grid[3][1] == None:
-                                                                                             if not grid[3][2] == None:
-                                                                                                 if not grid[3][3] == None:
-                                                                                                     if not grid[3][4] == None:
-                                                                                                         if not grid[3][5] == None:
-                                                                                                             if not grid[4][0] == None:
-                                                                                                                 if not grid[4][1] == None:
-                                                                                                                     if not grid[4][2] == None:
-                                                                                                                         if not grid[4][3] == None:
-                                                                                                                             if not grid[4][4] == None:
-                                                                                                                                 if not grid[4][5] == None:
-                                                                                                                                     if not grid[5][0] == None:
-                                                                                                                                         if not grid[5][1] == None:
-                                                                                                                                             if not grid[5][2] == None:
-                                                                                                                                                 if not grid[5][3] == None:
-                                                                                                                                                     if not grid[5][4] == None:
-                                                                                                                                                         if not grid[5][5] == None:
-                                                                                                                                                             self.playerTie()
+            for i in range(0, grid):
+                if not grid[i][0] == None:
+                    if not grid[i][1] == None:
+                        if not grid[i][2] == None:
+                            if not grid[i][3] == None:
+                                if not grid[i][4] == None:
+                                    if not grid[i][5] == None:
+                                        self.playerTie()
+
             pygame.display.flip()
 
     def playerTie(self):
         self.acticvated = False
         pygame.display.quit()
-        print "_____   ____________    |                              /\                    ==================                                |"
-        print "  |          |        __|                             /  \                            |                                        |"
-        print "  |          |                                       /    \                           |                                        |"
-        print "  |          |                                      /      \                          |         |===|      /==========\        |"
-        print "  |          |              _________              /        \                         |         |===|     /            \       |"
-        print "  |          |             /                      /          \                        |           |      /              \      |"
-        print "  |          |             |                     /            \                       |           |     |================      |"
-        print "  |          |             |                    /==============\                      |           |     |                      |"
-        print "  |          |             \________           /                \                     |           |     |                      |"
-        print "  |          |                      \         /                  \                    |           |     |                      |"
-        print "  |          |                      |        /                    \                   |           |     \                 /    |"
+        print "_____   ____________    |                              /\                    ==================                                |  "
+        print "  |          |        __|                             /  \                            |                                        |  "
+        print "  |          |                                       /    \                           |                                        |  "
+        print "  |          |                                      /      \                          |         |===|      /==========\        |  "
+        print "  |          |              _________              /        \                         |         |===|     /            \       |  "
+        print "  |          |             /                      /          \                        |           |      /              \      |  "
+        print "  |          |             |                     /            \                       |           |     |================      |  "
+        print "  |          |             |                    /==============\                      |           |     |                      |  "
+        print "  |          |             \________           /                \                     |           |     |                      |  "
+        print "  |          |                      \         /                  \                    |           |     |                      |  "
+        print "  |          |                      |        /                    \                   |           |     \                 /    |  "
         print "  |          |                      |       /                      \                  |           |      \               /   |===|"
         print "__|__        |              ________/      /                        \                 |           |       \_____________/    |===|"
 
