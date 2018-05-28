@@ -215,7 +215,7 @@ class connectFour():
                     self.blocks[i][j].update(0, 0)
                     self.blocks[i][j].draw()
 
-            for i in range(0, grid):
+            for i in range(0, len(grid)):
                 if not grid[i][0] == None:
                     if not grid[i][1] == None:
                         if not grid[i][2] == None:
