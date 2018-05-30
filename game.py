@@ -108,53 +108,42 @@ class connectFour():
                                     self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
                                     blackisup = False
                                     grid[i][5] = "BLACK"
-                                    print "grid[" + str(i) + "][5] now is BLACK"
                                     break
-                                elif grid[i][5] == "RED" or grid[i][5] == "BLACK":
-                                    if grid[i][4] == None:
-                                        placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][4].rect.centery))
-                                        aboutToPickRow = False
-                                        self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
-                                        blackisup = False
-                                        grid[i][4] = "BLACK"
-                                        print "grid[" + str(i) + "][4] now is BLACK"
-                                        break
-                                elif grid[i][4] == "RED" or grid[i][4] == "BLACK":
-                                    if grid[i][3] == None:
-                                        placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][3].rect.centery))
-                                        aboutToPickRow = False
-                                        self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
-                                        blackisup = False
-                                        grid[i][3] = "BLACK"
-                                        print "grid[" + str(i) + "][3] now is BLACK"
-                                        break
-                                elif grid[i][3] == "RED" or grid[i][3] == "BLACK":
-                                    if grid[i][2] == None:
-                                        placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][2].rect.centery))
-                                        aboutToPickRow = False
-                                        self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
-                                        blackisup = False
-                                        grid[i][2] = "BLACK"
-                                        print "grid[" + str(i) + "][2] now is BLACK"
-                                        break
-                                elif grid[i][2] == "RED" or grid[i][2] == "BLACK":
-                                    if grid[i][1] == None:
-                                        placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][1].rect.centery))
-                                        aboutToPickRow = False
-                                        self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
-                                        blackisup = False
-                                        grid[i][1] = "BLACK"
-                                        print "grid[" + str(i) + "][1] now is BLACK"
-                                        break
-                                elif grid[i][1] == "RED" or grid[i][1] == "BLACK":
-                                    if grid[i][0] == None:
-                                        placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][0].rect.centery))
-                                        aboutToPickRow = False
-                                        self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
-                                        blackisup = False
-                                        grid[i][0] = "BLACK"
-                                        print "grid[" + str(i) + "][0] now is BLACK"
-                                        break
+                                elif grid[i][5] != None and grid[i][4] == None:
+                                    placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][4].rect.centery))
+                                    aboutToPickRow = False
+                                    self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
+                                    blackisup = False
+                                    grid[i][4] = "BLACK"
+                                    break
+                                elif grid[i][4] != None and grid[i][3] == None:
+                                    placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][3].rect.centery))
+                                    aboutToPickRow = False
+                                    self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
+                                    blackisup = False
+                                    grid[i][3] = "BLACK"
+                                    break
+                                elif grid[i][2] != None and grid[i][1] == None:
+                                    placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][2].rect.centery))
+                                    aboutToPickRow = False
+                                    self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
+                                    blackisup = False
+                                    grid[i][2] = "BLACK"
+                                    break
+                                elif grid[i][1] != None and grid[i][0] == None:
+                                    placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][1].rect.centery))
+                                    aboutToPickRow = False
+                                    self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
+                                    blackisup = False
+                                    grid[i][1] = "BLACK"
+                                    break
+                                elif grid[i][5] != None and grid[i][4] == None:
+                                    placeBlack.append((self.arrows[i].rect.centerx, self.blocks[j][0].rect.centery))
+                                    aboutToPickRow = False
+                                    self.textsurface = self.lobster.render(up[1], False, (255, 69, 0))
+                                    blackisup = False
+                                    grid[i][0] = "BLACK"
+                                    break
                                 break
                             break
                         elif blackisup == False:
@@ -165,53 +154,42 @@ class connectFour():
                                     self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
                                     blackisup = True
                                     grid[i][5] = "RED"
-                                    print "grid[" + str(i) + "][5] now is RED"
                                     break
-                                elif grid[i][5] == "RED" or grid[i][5] == "BLACK":
-                                    if grid[i][4] == None:
-                                        placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][4].rect.centery))
-                                        aboutToPickRow = False
-                                        self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
-                                        blackisup = True
-                                        grid[i][4] = "RED"
-                                        print "grid[" + str(i) + "][4] now is RED"
-                                        break
-                                elif grid[i][4] == "RED" or grid[i][4] == "BLACK":
-                                    if grid[i][3] == None:
-                                        placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][3].rect.centery))
-                                        aboutToPickRow = False
-                                        self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
-                                        blackisup = True
-                                        grid[i][3] = "RED"
-                                        print "grid[" + str(i) + "][3] now is RED"
-                                        break
-                                elif grid[i][3] == "RED" or grid[i][3] == "BLACK":
-                                    if grid[i][2] == None:
-                                        placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][2].rect.centery))
-                                        aboutToPickRow = False
-                                        self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
-                                        blackisup = True
-                                        grid[i][2] = "RED"
-                                        print "grid[" + str(i) + "][2] now is RED"
-                                        break
-                                elif grid[i][2] == "RED" or grid[i][2] == "BLACK":
-                                    if grid[i][1] == None:
-                                        placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][1].rect.centery))
-                                        aboutToPickRow = False
-                                        self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
-                                        blackisup = True
-                                        grid[i][1] = "RED"
-                                        print "grid[" + str(i) + "][1] now is RED"
-                                        break
-                                elif grid[i][1] == "RED" or grid[i][1] == "BLACK":
-                                    if grid[i][0] == None:
-                                        placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][0].rect.centery))
-                                        aboutToPickRow = False
-                                        self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
-                                        blackisup = True
-                                        grid[i][0] = "RED"
-                                        print "grid[" + str(i) + "][0] now is RED"
-                                        break
+                                elif grid[i][5] != None and grid[i][4] == None:
+                                    placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][4].rect.centery))
+                                    aboutToPickRow = False
+                                    self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
+                                    blackisup = True
+                                    grid[i][4] = "RED"
+                                    break
+                                elif grid[i][4] != None and grid[i][3] == None:
+                                    placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][3].rect.centery))
+                                    aboutToPickRow = False
+                                    self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
+                                    blackisup = True
+                                    grid[i][3] = "RED"
+                                    break
+                                elif grid[i][5] != None and grid[i][4] == None:
+                                    placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][2].rect.centery))
+                                    aboutToPickRow = False
+                                    self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
+                                    blackisup = True
+                                    grid[i][2] = "RED"
+                                    break
+                                elif grid[i][5] != None and grid[i][4] == None:
+                                    placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][1].rect.centery))
+                                    aboutToPickRow = False
+                                    self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
+                                    blackisup = True
+                                    grid[i][1] = "RED"
+                                    break
+                                elif grid[i][5] != None and grid[i][4] == None:
+                                    placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][0].rect.centery))
+                                    aboutToPickRow = False
+                                    self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
+                                    blackisup = True
+                                    grid[i][0] = "RED"
+                                    break
                                 break
                             break
                     else:
@@ -237,15 +215,6 @@ class connectFour():
                     self.blocks[i][j].update(0, 0)
                     self.blocks[i][j].draw()
 
-            for i in range(0, len(grid)):
-                if not grid[i][0] == None:
-                    if not grid[i][1] == None:
-                        if not grid[i][2] == None:
-                            if not grid[i][3] == None:
-                                if not grid[i][4] == None:
-                                    if not grid[i][5] == None:
-                                        self.playerTie()
-
             pygame.display.flip()
 
     def playerTie(self):
@@ -265,7 +234,28 @@ class connectFour():
         print "  |          |                      |       /                      \                  |           |      \               /   |===|"
         print "__|__        |              ________/      /                        \                 |           |       \_____________/    |===|"
 
-    #def redPlayerWon(self): (METHODS TO CALL AND DEFINE LATER) def blackPlayerWon(self):
+    def redPlayerWon(self):
+        self.acticvated = False
+        pygame.display.quit()
+        print "|  /=======\                  |------------          |=\                          ________________                                                "
+        print "| /         \                 |                      | =\                        /                \              |            /|    |------------ "
+        print "|/           \                |                      |  =\                      /                  \             |           / |    |             "
+        print "|             \               |                      |   =\                    /                    \            |          /  |    |             "
+        print "|==============               |                      |    =\                  |                      |           |         /   |    |             "
+|       print "|             \               |                      |     =\                 |                      |           |        /    |    |             "
+        print "|              \              |                      |      =\                |                      |           |       /     |    |             "
+        print "|               \             |-----------           |      =/                |                      |           |      /      |    |------------ "
+        print "|                \            |                      |     =/                 |                      |           |     /       |    |             "
+        print "|                 \           |                      |    =/                   \                    /            |    /        |    |             "
+        print "|                  \          |                      |   =/                     \                  /             |   /         |    |             "
+        print "|                   \         |                      |  =/                       \                /              |  /          |    |             "
+        print "|                    \        |                      | =/                         \              /               | /           |    |             "
+        print "|                     \       |------------          |=/                           \____________/                |/            |    |-------------"
+
+    def blackPlayerWon(self):
+        self.acticvated = False
+        pygame.display.quit()
+        print ""
 
 os.system('clear')
 play = raw_input("Would you like to play Connect4 by Mikey Jacobs and Ozan Mirza? (y/n): ")
