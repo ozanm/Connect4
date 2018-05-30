@@ -199,13 +199,13 @@ class connectFour():
                 coin = GameSprite(self.screen, "4row_black.png", placeBlack[i])
                 coin.rect.centerx = placeBlack[i][0] + 100
                 coin.rect.centery = placeBlack[i][1]
-                coin.update(10, 0)
+                coin.update(5, 0)
                 coin.draw()
             for i in range(0, len(placeRed)):
                 coin = GameSprite(self.screen, "4row_red.png", placeRed[i])
                 coin.rect.centerx = placeRed[i][0] + 100
                 coin.rect.centery = placeRed[i][1]
-                coin.update(10, 0)
+                coin.update(5, 0)
                 coin.draw()
 
             self.screen.blit(self.textsurface, ((self.screen_width / 2) - (self.textsurface.get_rect().width / 2), 20))
