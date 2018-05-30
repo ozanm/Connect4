@@ -169,14 +169,14 @@ class connectFour():
                                     blackisup = True
                                     grid[i][3] = "RED"
                                     break
-                                elif grid[i][5] != None and grid[i][4] == None:
+                                elif grid[i][3] != None and grid[i][2] == None:
                                     placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][2].rect.centery))
                                     aboutToPickRow = False
                                     self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
                                     blackisup = True
                                     grid[i][2] = "RED"
                                     break
-                                elif grid[i][5] != None and grid[i][4] == None:
+                                elif grid[i][1] != None and grid[i][0] == None:
                                     placeRed.append((self.arrows[i].rect.centerx, self.blocks[j][1].rect.centery))
                                     aboutToPickRow = False
                                     self.textsurface = self.lobster.render(up[0], False, (255, 69, 0))
