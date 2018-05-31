@@ -6,6 +6,11 @@ import sys # Imports the System Module
 import random
 import time
 import os
+import sys
+import warnings
+
+if not sys.warnoptions:
+    warnings.simplefilter("ignore")
 
 class GameSprite(pygame.sprite.Sprite):
 
@@ -37,6 +42,8 @@ class connectFour():
         self.screen_height = height
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         pygame.display.set_caption("Connect4 Game By Mikey Jacobs And Ozan Mirza FPS: 30")
+        self.blackwon = GameSprite(self.screen, 'winner.png', (75, 200))
+        self.redwon = GameSprite(self.screen, 'winner.png', (925, 200))
         self.black = GameSprite(self.screen, '4row_black.png', (75,700))
         self.red = GameSprite(self.screen, '4row_red.png', (925,700))
         self.arrows =  [GameSprite(self.screen, "Black_Down_Arrow.png", (245, 100)),
@@ -60,6 +67,7 @@ class connectFour():
         clicked = False
         placeBlack = []
         placeRed = []
+        winner = None
         grid = [[None, None, None, None, None, None],
                 [None, None, None, None, None, None],
                 [None, None, None, None, None, None],
@@ -75,6 +83,7 @@ class connectFour():
             clock.tick(30)
             pygame.display.set_caption("Connect4 Game By Mikey Jacobs And Ozan Mirza FPS: " + str(clock.get_fps()))
             self.screen.fill((0, 255, 255))
+            tie_checker = 0
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit(0)
@@ -89,11 +98,19 @@ class connectFour():
                     elif blackisup == False and self.red.rect.collidepoint(pos) == True:
                         self.textsurface = self.lobster.render("Now Click On The Arrow That You Want The Coin To Fall In!", False, (255, 69, 0))
                         aboutToPickRow = True
+                    elif self.blackwon.rect.collidepoint(pos) == True:
+                        winner = "Black"
+                    elif self.redwon.rect.collidepoint(pos) == True:
+                        winner = "Red"
                     clicked = False
             self.black.update(0, 0)
             self.red.update(0, 0)
+            self.blackwon.update(0, 0)
+            self.redwon.update(0, 0)
             self.black.draw()
             self.red.draw()
+            self.blackwon.draw()
+            self.redwon.draw()
             if aboutToPickRow == True:
                 for i in range(0, len(self.arrows)):
                     self.arrows[i].update(0, 0)
@@ -217,6 +234,18 @@ class connectFour():
 
             pygame.display.flip()
 
+            for i in range(0, len(grid)):
+                for j in range(0, len(grid[i])):
+                    if grid[i][j] != None:
+                        tie_checker += 1
+                        if tie_checker == 36:
+                            self.playerTie(x)
+
+            if winner == "Black":
+                self.blackPlayerWon()
+            elif winner == "Red":
+                self.redPlayerWon()
+
     def playerTie(self):
         self.acticvated = False
         pygame.display.quit()
@@ -252,17 +281,50 @@ class connectFour():
         print "|                    \        |                      | =/                         \              /               | /           |    |             "
         print "|                     \       |------------          |=/                           \____________/                |/            |    |-------------"
 
+        playAgain = raw_input("Would You Like To Play Again? (Yepper Pepper/Noper Doper): ")
+        if playeAgain == "Yepper Pepper":
+            os.write("python game.py")
+
     def blackPlayerWon(self):
         self.acticvated = False
         pygame.display.quit()
-        print ""
+        print "|--------           |                            /\                      |----\        |      /            /|           "
+        print "|        \          |                           /  \                     |     \       |     /            / |           "
+        print "|         \         |                          /    \                    |      \      |    /            /  |           "
+        print "|          \        |                         /      \                   |             |   /                |           "
+        print "|           /       |                        /        \                  |             |  /                 |           "
+        print "|------------       |                       /----------\                 |             |-/                  |           "
+        print "|           \       |                      /            \                |             |-\                  |           "
+        print "|          /        |                     /              \               |             |  \                 |           "
+        print "|         /         |                    /                \              |             |   \                |           "
+        print "|        /          |                   /                  \             |      /      |    \               |           "
+        print "|       /           |                  /                    \            |     /       |     \              |           "
+        print "|------/            |_____________    /                      \           |----/        |      \     ________|________   "
+
+        playAgain = raw_input("Would You Like To Play Again? (Yepper Pepper/Noper Doper): ")
+        if playAgain == "Yepper Pepper":
+            os.system("python game.py")
 
 os.system('clear')
-play = raw_input("Would you like to play Connect4 by Mikey Jacobs and Ozan Mirza? (y/n): ")
-if play == "y":
-    game = connectFour(1000, 800)
-    game.run(True)
-elif play == "n":
+play = raw_input("Would you like to play Connect4 by Mikey Jacobs and Ozan Mirza? (Yepper Pepper/Noper Doper): ")
+if play == "Yepper Pepper":
+    print "Rules:"
+    time.sleep(1)
+    print "* Decide Amougnst Yourselves Who Gets Black And Who Gets Red."
+    time.sleep(1)
+    print "* Who Ever Is Up, Click On Your Coin, Then Click On THe Arrow That You Want The Column To Be In."
+    time.sleep(1)
+    print "* The Next Player Goes, And So On"
+    time.sleep(1)
+    print "* Who Wins, May Claim Their Trophy By Clicking On It, Then Look Back To This Terminal Window."
+    time.sleep(1)
+    ok = raw_input("OK? (Yepper Pepper/Noper Doper): ")
+    if ok == "Yepper Pepper":
+        game = connectFour(1000, 800)
+        game.run(True)
+    else:
+        sys.exit(0)
+elif play == "Noper Doper":
     sys.exit(0)
 else:
     sys.exit(1)
