@@ -2,7 +2,7 @@
 
 import pygame
 from pygame.locals import *
-import sys # Imports the System Module
+import sys
 import random
 import time
 import os
