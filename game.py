@@ -281,29 +281,25 @@ class connectFour():
         print "|                    \        |                      | =/                         \              /               | /           |    |             "
         print "|                     \       |------------          |=/                           \____________/                |/            |    |-------------"
 
-        playAgain = raw_input("Would You Like To Play Again? (Yepper Pepper/Noper Doper): ")
-        if playeAgain == "Yepper Pepper":
-            os.write("python game.py")
+        print "\n If You'd Like To Play Again, Click Up, Then Enter"
 
     def blackPlayerWon(self):
         self.acticvated = False
         pygame.display.quit()
-        print "|--------           |                            /\                      |----\        |      /            /|           "
-        print "|        \          |                           /  \                     |     \       |     /            / |           "
-        print "|         \         |                          /    \                    |      \      |    /            /  |           "
-        print "|          \        |                         /      \                   |             |   /                |           "
-        print "|           /       |                        /        \                  |             |  /                 |           "
-        print "|------------       |                       /----------\                 |             |-/                  |           "
-        print "|           \       |                      /            \                |             |-\                  |           "
-        print "|          /        |                     /              \               |             |  \                 |           "
-        print "|         /         |                    /                \              |             |   \                |           "
-        print "|        /          |                   /                  \             |      /      |    \               |           "
-        print "|       /           |                  /                    \            |     /       |     \              |           "
-        print "|------/            |_____________    /                      \           |----/        |      \     ________|________   "
+        print "|--------           |                            /\                      |----\        |      /            /|        "
+        print "|        \          |                           /  \                     |     \       |     /            / |        "
+        print "|         \         |                          /    \                    |      \      |    /            /  |        "
+        print "|          \        |                         /      \                   |             |   /                |        "
+        print "|           /       |                        /        \                  |             |  /                 |        "
+        print "|------------       |                       /----------\                 |             |-/                  |        "
+        print "|           \       |                      /            \                |             |-\                  |        "
+        print "|          /        |                     /              \               |             |  \                 |        "
+        print "|         /         |                    /                \              |             |   \                |        "
+        print "|        /          |                   /                  \             |      /      |    \               |        "
+        print "|       /           |                  /                    \            |     /       |     \              |        "
+        print "|------/            |_____________    /                      \           |----/        |      \     ________|________"
 
-        playAgain = raw_input("Would You Like To Play Again? (Yepper Pepper/Noper Doper): ")
-        if playAgain == "Yepper Pepper":
-            os.system("python game.py")
+        print "\n If You'd Like To Play Again, Click Up, Then Enter"
 
 os.system('clear')
 play = raw_input("Would you like to play Connect4 by Mikey Jacobs and Ozan Mirza? (Yepper Pepper/Noper Doper): ")
