@@ -81,7 +81,7 @@ class connectFour():
 
         while running == True and self.acticvated == True:
             clock.tick(30)
-            pygame.display.set_caption("Connect4 Game By Mikey Jacobs And Ozan Mirza FPS: " + str(clock.get_fps()))
+            pygame.display.set_caption("Connect4 Game By Mikey Jacobs And Ozan Mirza in assosication with Ethan Katz FPS: " + str(clock.get_fps()))
             self.screen.fill((0, 255, 255))
             tie_checker = 0
             for event in pygame.event.get():
@@ -209,6 +209,7 @@ class connectFour():
                                     break
                                 break
                             break
+
                     else:
                         continue
 
@@ -239,7 +240,36 @@ class connectFour():
                     if grid[i][j] != None:
                         tie_checker += 1
                         if tie_checker == 36:
-                            self.playerTie(x)
+                            self.playerTie()
+
+            for i in range(0, len(grid)):
+                for j in range(0, len(grid[i])):
+                    if not i > 2:
+                        if grid[i+1][j] == grid[i][j] and grid[i+2][j] == grid[i][j] and grid[i+3][j] == grid[i][j]:
+                            if grid[i][j] == "BLACK":
+                                winner = "Black"
+                            elif grid[i][j] == "RED":
+                                winner = "Red"
+                    elif not j > 2:
+                        if grid[i][j+1] == grid[i][j] and grid[i][j+2] == grid[i][j] and grid[i][j+3] == grid[i][j]:
+                            if grid[i][j] == "BLACK":
+                                winner = "Black"
+                            elif grid[i][j] == "RED":
+                                winner = "Red"
+                    elif not j > 2 and not i > 2:
+                        if grid[i+1][j+1] == grid[i][j] and grid[i+2][j+2] == grid[i][j] and grid[i+3][j+3] == grid[i][j]:
+                            if grid[i][j] == "BLACK":
+                                winner = "Black"
+                            elif grid[i][j] == "RED":
+                                winner = "Red"
+                    elif not j < 3 and not i > 2:
+                        if grid[i+1][j-1] == grid[i][j] and grid[i+2][j-2] == grid[i][j] and grid[i+3][j-3] == grid[i][j]:
+                            if grid[i][j] == "BLACK":
+                                winner = "Black"
+                            elif grid[i][j] == "RED":
+                                winner = "Red"
+
+
 
             if winner == "Black":
                 self.blackPlayerWon()
@@ -302,9 +332,9 @@ class connectFour():
         print "\n If You'd Like To Play Again, Click Up, Then Enter"
 
 os.system('clear')
-play = raw_input("Would you like to play Connect4 by Mikey Jacobs and Ozan Mirza? (Yepper Pepper/Noper Doper): ")
+play = raw_input("Would you like to play Connect4 by Mikey Jacobs and Ozan Mirza in Assosiation With Ethan Katz? (Yepper Pepper/Noper Doper): ")
 if play == "Yepper Pepper":
-    print "Rules:"
+    print "\nRules:"
     time.sleep(1)
     print "* Decide Amougnst Yourselves Who Gets Black And Who Gets Red."
     time.sleep(1)
