@@ -332,6 +332,19 @@ class connectFour():
         print "\n If You'd Like To Play Again, Click Up, Then Enter"
 
 os.system('clear')
+        print "                          _________            |\            |    |\            |   |-----------------        |----\      -------|-------               /|                                  "
+        print "  |----\                 /         \           | \           |    | \           |   |                         |     \            |                     / |                             "
+        print "  |     \               /           \          |  \          |    |  \          |   |                         |      \           |                    /  |                         " 
+        print "  |      \             /             \         |   \         |    |   \         |   |                         |                  |                   /   |                     "
+        print "  |                   /               \        |    \        |    |    \        |   |                         |                  |                  /    |                "
+        print "  |                   |                |       |     \       |    |     \       |   |                         |                  |                 /     |                 "
+        print "  |                   |                |       |      \      |    |      \      |   |--------                 |                  |                /------|--------                       "
+        print "  |                   |                |       |       \     |    |       \     |   |                         |                  |                       |                 "
+        print "  |                   |                |       |        \    |    |        \    |   |                         |                  |                       |                                                        "
+        print "  |                   \                /       |         \   |    |         \   |   |                         |                  |                       |          "                                        
+        print "  |      /             \              /        |          \  |    |          \  |   |                         |      /           |                       |                                      "
+        print "  |     /               \            /         |           \ |    |           \ |   |                         |     /            |                       |                                       "
+        print "  |----/                 \__________/          |            \|    |            \|   |------------------       |----/             |                       |                                                           "
 play = raw_input("Would you like to play Connect4 by Mikey Jacobs and Ozan Mirza in Assosiation With Ethan Katz? (Yepper Pepper/Noper Doper): ")
 if play == "Yepper Pepper":
     print "\nRules:"
