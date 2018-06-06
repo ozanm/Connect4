@@ -211,6 +211,7 @@ class connectFour():
                     if grid[i][j] != None:
                         tie_checker += 1
                         if tie_checker == 36:
+                            self.acticvated = False
                             self.playerTie()
 
             for i in range(0, len(grid)):
@@ -218,30 +219,37 @@ class connectFour():
                     if not i > 2:
                         if grid[i+1][j] == grid[i][j] and grid[i+2][j] == grid[i][j] and grid[i+3][j] == grid[i][j]:
                             if grid[i][j] == "BLACK":
+                                self.acticvated = False
                                 self.blackPlayerWon()
                             elif grid[i][j] == "RED":
+                                self.acticvated = False
                                 self.redPlayerWon()
                     elif not j > 2:
                         if grid[i][j+1] == grid[i][j] and grid[i][j+2] == grid[i][j] and grid[i][j+3] == grid[i][j]:
                             if grid[i][j] == "BLACK":
+                                self.acticvated = False
                                 self.blackPlayerWon()
                             elif grid[i][j] == "RED":
+                                self.acticvated = False
                                 self.redPlayerWon()
                     elif not j > 2 and not i > 2:
                         if grid[i+1][j+1] == grid[i][j] and grid[i+2][j+2] == grid[i][j] and grid[i+3][j+3] == grid[i][j]:
                             if grid[i][j] == "BLACK":
+                                self.acticvated = False
                                 self.blackPlayerWon()
                             elif grid[i][j] == "RED":
+                                self.acticvated = False
                                 self.redPlayerWon()
                     elif not j < 3 and not i > 2:
                         if grid[i+1][j-1] == grid[i][j] and grid[i+2][j-2] == grid[i][j] and grid[i+3][j-3] == grid[i][j]:
                             if grid[i][j] == "BLACK":
+                                self.acticvated = False
                                 self.blackPlayerWon()
                             elif grid[i][j] == "RED":
+                                self.activated = False
                                 self.redPlayerWon()
 
     def playerTie(self):
-        self.acticvated = False
         print "_____   ____________    |                              /\                    ==================                                |  "
         print "  |          |        __|                             /  \                            |                                        |  "
         print "  |          |                                       /    \                           |                                        |  "
@@ -269,6 +277,7 @@ class connectFour():
                 notPlaying = False
                 sys.exit(0)
             self.backgroundColor = (0, 0, 0)
+            self.screen.fill(backgroundColor)
             trophy = GameSprite(self.screen, 'winner.png', (0, 0))
             trophy.centerx = self.screen_width / 2
             trophy.centery = self.screen_height / 2
@@ -276,7 +285,6 @@ class connectFour():
             trophy.draw()
 
     def redPlayerWon(self):
-        self.acticvated = False
         print "|  /=======\                  |------------          |=\                          ________________                                                "
         print "| /         \                 |                      | =\                        /                \              |            /|    |------------ "
         print "|/           \                |                      |  =\                      /                  \             |           / |    |             "
@@ -312,7 +320,6 @@ class connectFour():
             trophy.draw()
 
     def blackPlayerWon(self):
-        self.acticvated = False
         print "|--------           |                            /\                      |----\        |      /            /|        "
         print "|        \          |                           /  \                     |     \       |     /            / |        "
         print "|         \         |                          /    \                    |      \      |    /            /  |        "
