@@ -353,20 +353,20 @@ class connectFour():
             trophy.draw()
 
 os.system('clear')
-        print "                          _________            |\            |    |\            |   |-----------------        |----\      -------|-------               /|                                  "
-        print "  |----\                 /         \           | \           |    | \           |   |                         |     \            |                     / |                             "
-        print "  |     \               /           \          |  \          |    |  \          |   |                         |      \           |                    /  |                         " 
-        print "  |      \             /             \         |   \         |    |   \         |   |                         |                  |                   /   |                     "
-        print "  |                   /               \        |    \        |    |    \        |   |                         |                  |                  /    |                "
-        print "  |                   |                |       |     \       |    |     \       |   |                         |                  |                 /     |                 "
-        print "  |                   |                |       |      \      |    |      \      |   |--------                 |                  |                /------|--------                       "
-        print "  |                   |                |       |       \     |    |       \     |   |                         |                  |                       |                 "
-        print "  |                   |                |       |        \    |    |        \    |   |                         |                  |                       |                                                        "
-        print "  |                   \                /       |         \   |    |         \   |   |                         |                  |                       |          "                                        
-        print "  |      /             \              /        |          \  |    |          \  |   |                         |      /           |                       |                                      "
-        print "  |     /               \            /         |           \ |    |           \ |   |                         |     /            |                       |                                       "
-        print "  |----/                 \__________/          |            \|    |            \|   |------------------       |----/             |                       |                                                           "
-play = raw_input("Would you like to play Connect4 by Mikey Jacobs and Ozan Mirza in Assosiation With Ethan Katz? (Yepper Pepper/Noper Doper): ")
+time.sleep(0.25); print "                          _________            |\            |    |\            |   |-----------------        |----\      -------|-------               /|        "
+time.sleep(0.25); print "  |-------\              /         \           | \           |    | \           |   |                         |     \            |                     / |        "
+time.sleep(0.25); print "  |        \            /           \          |  \          |    |  \          |   |                         |      \           |                    /  |        "
+time.sleep(0.25); print "  |         \          /             \         |   \         |    |   \         |   |                         |                  |                   /   |        "
+time.sleep(0.25); print "  |                   /               \        |    \        |    |    \        |   |                         |                  |                  /    |        "
+time.sleep(0.25); print "  |                   |                |       |     \       |    |     \       |   |                         |                  |                 /     |        "
+time.sleep(0.25); print "  |                   |                |       |      \      |    |      \      |   |--------                 |                  |                /------|--------"
+time.sleep(0.25); print "  |                   |                |       |       \     |    |       \     |   |                         |                  |                       |        "
+time.sleep(0.25); print "  |                   |                |       |        \    |    |        \    |   |                         |                  |                       |        "
+time.sleep(0.25); print "  |                   \                /       |         \   |    |         \   |   |                         |                  |                       |        "
+time.sleep(0.25); print "  |         /          \              /        |          \  |    |          \  |   |                         |      /           |                       |        "
+time.sleep(0.25); print "  |        /            \            /         |           \ |    |           \ |   |                         |     /            |                       |        "
+time.sleep(0.25); print "  |-------/              \__________/          |            \|    |            \|   |------------------       |----/             |                       |        "
+play = raw_input("\nWould you like to play Connect4 by Mikey Jacobs and Ozan Mirza in Assosiation With Ethan Katz? (Yepper Pepper/Noper Doper): ")
 if play == "Yepper Pepper":
     print "\nRules:"
     time.sleep(1)
