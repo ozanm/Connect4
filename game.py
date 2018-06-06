@@ -250,19 +250,19 @@ class connectFour():
                                 self.redPlayerWon()
 
     def playerTie(self):
-        print "_____   ____________    |                              /\                    ==================                                |  "
-        print "  |          |        __|                             /  \                            |                                        |  "
-        print "  |          |                                       /    \                           |                                        |  "
-        print "  |          |                                      /      \                          |         |===|      /==========\        |  "
-        print "  |          |              _________              /        \                         |         |===|     /            \       |  "
-        print "  |          |             /                      /          \                        |           |      /              \      |  "
-        print "  |          |             |                     /            \                       |           |     |================      |  "
-        print "  |          |             |                    /==============\                      |           |     |                      |  "
-        print "  |          |             \________           /                \                     |           |     |                      |  "
-        print "  |          |                      \         /                  \                    |           |     |                      |  "
-        print "  |          |                      |        /                    \                   |           |     \                 /    |  "
-        print "  |          |                      |       /                      \                  |           |      \               /   |===|"
-        print "__|__        |              ________/      /                        \                 |           |       \_____________/    |===|"
+        time.sleep(0.25); print "_____   ____________    |                              /\                    ==================                                |  "
+        time.sleep(0.25); print "  |          |        __|                             /  \                            |                                        |  "
+        time.sleep(0.25); print "  |          |                                       /    \                           |                                        |  "
+        time.sleep(0.25); print "  |          |                                      /      \                          |         |===|      /==========\        |  "
+        time.sleep(0.25); print "  |          |              _________              /        \                         |         |===|     /            \       |  "
+        time.sleep(0.25); print "  |          |             /                      /          \                        |           |      /              \      |  "
+        time.sleep(0.25); print "  |          |             |                     /            \                       |           |     |================      |  "
+        time.sleep(0.25); print "  |          |             |                    /==============\                      |           |     |                      |  "
+        time.sleep(0.25); print "  |          |             \________           /                \                     |           |     |                      |  "
+        time.sleep(0.25); print "  |          |                      \         /                  \                    |           |     |                      |  "
+        time.sleep(0.25); print "  |          |                      |        /                    \                   |           |     \                 /    |  "
+        time.sleep(0.25); print "  |          |                      |       /                      \                  |           |      \               /   |===|"
+        time.sleep(0.25); print "__|__        |              ________/      /                        \                 |           |       \_____________/    |===|"
         notPlaying = True
         playAgain = raw_input("\n Would You Like To Play Again?(Yepper Pepper/Noper Doper): ")
         while notPlaying == True:
@@ -285,20 +285,20 @@ class connectFour():
             trophy.draw()
 
     def redPlayerWon(self):
-        print "|  /=======\                  |------------          |=\                          ________________                                                "
-        print "| /         \                 |                      | =\                        /                \              |            /|    |------------ "
-        print "|/           \                |                      |  =\                      /                  \             |           / |    |             "
-        print "|             \               |                      |   =\                    /                    \            |          /  |    |             "
-        print "|==============               |                      |    =\                  |                      |           |         /   |    |             "
-        print "|             \               |                      |     =\                 |                      |           |        /    |    |             "
-        print "|              \              |                      |      =\                |                      |           |       /     |    |             "
-        print "|               \             |-----------           |      =/                |                      |           |      /      |    |------------ "
-        print "|                \            |                      |     =/                 |                      |           |     /       |    |             "
-        print "|                 \           |                      |    =/                   \                    /            |    /        |    |             "
-        print "|                  \          |                      |   =/                     \                  /             |   /         |    |             "
-        print "|                   \         |                      |  =/                       \                /              |  /          |    |             "
-        print "|                    \        |                      | =/                         \              /               | /           |    |             "
-        print "|                     \       |------------          |=/                           \____________/                |/            |    |-------------"
+        time.sleep(0.25); print "|  /=======\                  |------------          |=\                          ________________                                                "
+        time.sleep(0.25); print "| /         \                 |                      | =\                        /                \              |            /|    |------------ "
+        time.sleep(0.25); print "|/           \                |                      |  =\                      /                  \             |           / |    |             "
+        time.sleep(0.25); print "|             \               |                      |   =\                    /                    \            |          /  |    |             "
+        time.sleep(0.25); print "|==============               |                      |    =\                  |                      |           |         /   |    |             "
+        time.sleep(0.25); print "|             \               |                      |     =\                 |                      |           |        /    |    |             "
+        time.sleep(0.25); print "|              \              |                      |      =\                |                      |           |       /     |    |             "
+        time.sleep(0.25); print "|               \             |-----------           |      =/                |                      |           |      /      |    |------------ "
+        time.sleep(0.25); print "|                \            |                      |     =/                 |                      |           |     /       |    |             "
+        time.sleep(0.25); print "|                 \           |                      |    =/                   \                    /            |    /        |    |             "
+        time.sleep(0.25); print "|                  \          |                      |   =/                     \                  /             |   /         |    |             "
+        time.sleep(0.25); print "|                   \         |                      |  =/                       \                /              |  /          |    |             "
+        time.sleep(0.25); print "|                    \        |                      | =/                         \              /               | /           |    |             "
+        time.sleep(0.25); print "|                     \       |------------          |=/                           \____________/                |/            |    |-------------"
         notPlaying = True
         playAgain = raw_input("\n Would You Like To Play Again?(Yepper Pepper/Noper Doper): ")
         while notPlaying == True:
@@ -320,18 +320,18 @@ class connectFour():
             trophy.draw()
 
     def blackPlayerWon(self):
-        print "|--------           |                            /\                      |----\        |      /            /|        "
-        print "|        \          |                           /  \                     |     \       |     /            / |        "
-        print "|         \         |                          /    \                    |      \      |    /            /  |        "
-        print "|          \        |                         /      \                   |             |   /                |        "
-        print "|           /       |                        /        \                  |             |  /                 |        "
-        print "|------------       |                       /----------\                 |             |-/                  |        "
-        print "|           \       |                      /            \                |             |-\                  |        "
-        print "|          /        |                     /              \               |             |  \                 |        "
-        print "|         /         |                    /                \              |             |   \                |        "
-        print "|        /          |                   /                  \             |      /      |    \               |        "
-        print "|       /           |                  /                    \            |     /       |     \              |        "
-        print "|------/            |_____________    /                      \           |----/        |      \     ________|________"
+        time.sleep(0.25); print "|--------           |                            /\                      |----\        |      /            /|        "
+        time.sleep(0.25); print "|        \          |                           /  \                     |     \       |     /            / |        "
+        time.sleep(0.25); print "|         \         |                          /    \                    |      \      |    /            /  |        "
+        time.sleep(0.25); print "|          \        |                         /      \                   |             |   /                |        "
+        time.sleep(0.25); print "|           /       |                        /        \                  |             |  /                 |        "
+        time.sleep(0.25); print "|------------       |                       /----------\                 |             |-/                  |        "
+        time.sleep(0.25); print "|           \       |                      /            \                |             |-\                  |        "
+        time.sleep(0.25); print "|          /        |                     /              \               |             |  \                 |        "
+        time.sleep(0.25); print "|         /         |                    /                \              |             |   \                |        "
+        time.sleep(0.25); print "|        /          |                   /                  \             |      /      |    \               |        "
+        time.sleep(0.25); print "|       /           |                  /                    \            |     /       |     \              |        "
+        time.sleep(0.25); print "|------/            |_____________    /                      \           |----/        |      \     ________|________"
         notPlaying = True
         playAgain = raw_input("\n Would You Like To Play Again?(Yepper Pepper/Noper Doper): ")
         while notPlaying == True:
@@ -353,19 +353,19 @@ class connectFour():
             trophy.draw()
 
 os.system('clear')
-time.sleep(0.25); print "                          _________            |\            |    |\            |   |-----------------        |----\      -------|-------               /|        "
-time.sleep(0.25); print "  |-------\              /         \           | \           |    | \           |   |                         |     \            |                     / |        "
-time.sleep(0.25); print "  |        \            /           \          |  \          |    |  \          |   |                         |      \           |                    /  |        "
-time.sleep(0.25); print "  |         \          /             \         |   \         |    |   \         |   |                         |                  |                   /   |        "
-time.sleep(0.25); print "  |                   /               \        |    \        |    |    \        |   |                         |                  |                  /    |        "
-time.sleep(0.25); print "  |                   |                |       |     \       |    |     \       |   |                         |                  |                 /     |        "
-time.sleep(0.25); print "  |                   |                |       |      \      |    |      \      |   |--------                 |                  |                /------|--------"
-time.sleep(0.25); print "  |                   |                |       |       \     |    |       \     |   |                         |                  |                       |        "
-time.sleep(0.25); print "  |                   |                |       |        \    |    |        \    |   |                         |                  |                       |        "
-time.sleep(0.25); print "  |                   \                /       |         \   |    |         \   |   |                         |                  |                       |        "
-time.sleep(0.25); print "  |         /          \              /        |          \  |    |          \  |   |                         |      /           |                       |        "
-time.sleep(0.25); print "  |        /            \            /         |           \ |    |           \ |   |                         |     /            |                       |        "
-time.sleep(0.25); print "  |-------/              \__________/          |            \|    |            \|   |------------------       |----/             |                       |        "
+time.sleep(0.25); print "|======\                _________            |\            |    |\            |   |-----------------        |-------\   -------|-------       /|        "
+time.sleep(0.25); print "|       \              /         \           | \           |    | \           |   |                         |        \         |             / |        "
+time.sleep(0.25); print "|        \            /           \          |  \          |    |  \          |   |                         |         \        |            /  |        "
+time.sleep(0.25); print "|         \          /             \         |   \         |    |   \         |   |                         |                  |           /   |        "
+time.sleep(0.25); print "|                   /               \        |    \        |    |    \        |   |                         |                  |          /    |        "
+time.sleep(0.25); print "|                  |                 |       |     \       |    |     \       |   |                         |                  |         /     |        "
+time.sleep(0.25); print "|                  |                 |       |      \      |    |      \      |   |---------------          |                  |        /------|--------"
+time.sleep(0.25); print "|                  |                 |       |       \     |    |       \     |   |                         |                  |               |        "
+time.sleep(0.25); print "|                  |                 |       |        \    |    |        \    |   |                         |                  |               |        "
+time.sleep(0.25); print "|                   \                /       |         \   |    |         \   |   |                         |                  |               |        "
+time.sleep(0.25); print "|         /          \              /        |          \  |    |          \  |   |                         |         /        |               |        "
+time.sleep(0.25); print "|        /            \            /         |           \ |    |           \ |   |                         |        /         |               |        "
+time.sleep(0.25); print "|-------/              \__________/          |            \|    |            \|   |------------------       |-------/          |               |        "
 play = raw_input("\nWould you like to play Connect4 by Mikey Jacobs and Ozan Mirza in Assosiation With Ethan Katz? (Yepper Pepper/Noper Doper): ")
 if play == "Yepper Pepper":
     print "\nRules:"
