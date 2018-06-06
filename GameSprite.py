@@ -1,3 +1,6 @@
+import pygame
+from pygame.locals import *
+
 class GameSprite(pygame.sprite.Sprite):
 
   def __init__(self, screen, filename, position):

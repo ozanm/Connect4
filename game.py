@@ -8,7 +8,7 @@ import time
 import os
 import sys
 import warnings
-for GameSprite import GameSprite
+from GameSprite import GameSprite
 
 if not sys.warnoptions:
     warnings.simplefilter("ignore")
