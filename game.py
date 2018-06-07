@@ -19,6 +19,7 @@ class connectFour():
         self.acticvated = True
         self.backgroundColor = (0, 255, 255)
         self.winner = None # "Red" / "Black" / "Tie"
+        self.notPlaying = False
         self.lobster = pygame.font.Font('Lobster-Regular.ttf', 40)
         self.textsurface = self.lobster.render("THIS PROJECT IS BETTER THAN THE OTHERS", False, (255, 69, 0))
         self.screen_width = width
@@ -247,9 +248,11 @@ class connectFour():
                                 running = False
                                 self.blackPlayerWon()
                             elif grid[i][j] == "RED":
+                                running = False
                                 self.redPlayerWon()
 
         while running == False or self.acticvated == False:
+            pygame.display.set_caption("Go Back To Terminal!! ->")
             if self.winner == "Red":
                 self.screen.fill((255, 0, 0))
             elif self.winner == "Black":
@@ -267,68 +270,70 @@ class connectFour():
             trophy.update(0, 0)
             trophy.draw()
             pygame.display.flip()
-
-        if not self.winner == None:
-            playAgain = raw_input("\nWould You Like To Play Again?(Yepper Pepper/Noper Doper): ")
-            if playAgain == "Yepper Pepper":
-                self.winner = None
-                self.run(True)
-            else:
-                sys.exit(0)
+            if self.notPlaying == True:
+                self.retry()
+                self.notPlaying = False
 
     def playerTie(self):
         self.winner = "Tie"
-        time.sleep(0.25); print "_____   ____________    |                              /\                    ==================                                |  "
-        time.sleep(0.25); print "  |          |        __|                             /  \                            |                                        |  "
-        time.sleep(0.25); print "  |          |                                       /    \                           |                                        |  "
-        time.sleep(0.25); print "  |          |                                      /      \                          |         |===|      /==========\        |  "
-        time.sleep(0.25); print "  |          |              _________              /        \                         |         |===|     /            \       |  "
-        time.sleep(0.25); print "  |          |             /                      /          \                        |           |      /              \      |  "
-        time.sleep(0.25); print "  |          |             |                     /            \                       |           |     |================      |  "
-        time.sleep(0.25); print "  |          |             |                    /==============\                      |           |     |                      |  "
-        time.sleep(0.25); print "  |          |             \________           /                \                     |           |     |                      |  "
-        time.sleep(0.25); print "  |          |                      \         /                  \                    |           |     |                      |  "
-        time.sleep(0.25); print "  |          |                      |        /                    \                   |           |     \                 /    |  "
-        time.sleep(0.25); print "  |          |                      |       /                      \                  |           |      \               /   |===|"
-        time.sleep(0.25); print "__|__        |              ________/      /                        \                 |           |       \_____________/    |===|"
-        playAgain = raw_input("\nWould You Like To Play Again?(Yepper Pepper/Noper Doper): ")
-        if playAgain == "Yepper Pepper":
-            self.winner = None
-            self.run(True)
-        else:
-            sys.exit(0)
+        self.notPlaying = True
+        print "_____   ____________    |                              /\                    ==================                                |  "
+        print "  |          |        __|                             /  \                            |                                        |  "
+        print "  |          |                                       /    \                           |                                        |  "
+        print "  |          |                                      /      \                          |         |===|      /==========\        |  "
+        print "  |          |              _________              /        \                         |         |===|     /            \       |  "
+        print "  |          |             /                      /          \                        |           |      /              \      |  "
+        print "  |          |             |                     /            \                       |           |     |================      |  "
+        print "  |          |             |                    /==============\                      |           |     |                      |  "
+        print "  |          |             \________           /                \                     |           |     |                      |  "
+        print "  |          |                      \         /                  \                    |           |     |                      |  "
+        print "  |          |                      |        /                    \                   |           |     \                 /    |  "
+        print "  |          |                      |       /                      \                  |           |      \               /   |===|"
+        print "__|__        |              ________/      /                        \                 |           |       \_____________/    |===|"
 
     def redPlayerWon(self):
         self.winner = "Red"
-        time.sleep(0.25); print "|  /=======\                  |------------          |=\                          ________________                                                "
-        time.sleep(0.25); print "| /         \                 |                      | =\                        /                \              |            /|    |------------ "
-        time.sleep(0.25); print "|/           \                |                      |  =\                      /                  \             |           / |    |             "
-        time.sleep(0.25); print "|             \               |                      |   =\                    /                    \            |          /  |    |             "
-        time.sleep(0.25); print "|==============               |                      |    =\                  |                      |           |         /   |    |             "
-        time.sleep(0.25); print "|             \               |                      |     =\                 |                      |           |        /    |    |             "
-        time.sleep(0.25); print "|              \              |                      |      =\                |                      |           |       /     |    |             "
-        time.sleep(0.25); print "|               \             |-----------           |      =/                |                      |           |      /      |    |------------ "
-        time.sleep(0.25); print "|                \            |                      |     =/                 |                      |           |     /       |    |             "
-        time.sleep(0.25); print "|                 \           |                      |    =/                   \                    /            |    /        |    |             "
-        time.sleep(0.25); print "|                  \          |                      |   =/                     \                  /             |   /         |    |             "
-        time.sleep(0.25); print "|                   \         |                      |  =/                       \                /              |  /          |    |             "
-        time.sleep(0.25); print "|                    \        |                      | =/                         \              /               | /           |    |             "
-        time.sleep(0.25); print "|                     \       |------------          |=/                           \____________/                |/            |    |-------------"
+        self.notPlaying = True
+        print "|  /=======\                  |------------          |=\                          ________________                                                "
+        print "| /         \                 |                      | =\                        /                \              |            /|    |------------ "
+        print "|/           \                |                      |  =\                      /                  \             |           / |    |             "
+        print "|             \               |                      |   =\                    /                    \            |          /  |    |             "
+        print "|==============               |                      |    =\                  |                      |           |         /   |    |             "
+        print "|             \               |                      |     =\                 |                      |           |        /    |    |             "
+        print "|              \              |                      |      =\                |                      |           |       /     |    |             "
+        print "|               \             |-----------           |      =/                |                      |           |      /      |    |------------ "
+        print "|                \            |                      |     =/                 |                      |           |     /       |    |             "
+        print "|                 \           |                      |    =/                   \                    /            |    /        |    |             "
+        print "|                  \          |                      |   =/                     \                  /             |   /         |    |             "
+        print "|                   \         |                      |  =/                       \                /              |  /          |    |             "
+        print "|                    \        |                      | =/                         \              /               | /           |    |             "
+        print "|                     \       |------------          |=/                           \____________/                |/            |    |-------------"
 
     def blackPlayerWon(self):
         self.winner = "Black"
-        time.sleep(0.25); print "|--------           |                            /\                      |----\        |      /            /|        "
-        time.sleep(0.25); print "|        \          |                           /  \                     |     \       |     /            / |        "
-        time.sleep(0.25); print "|         \         |                          /    \                    |      \      |    /            /  |        "
-        time.sleep(0.25); print "|          \        |                         /      \                   |             |   /                |        "
-        time.sleep(0.25); print "|           /       |                        /        \                  |             |  /                 |        "
-        time.sleep(0.25); print "|------------       |                       /----------\                 |             |-/                  |        "
-        time.sleep(0.25); print "|           \       |                      /            \                |             |-\                  |        "
-        time.sleep(0.25); print "|          /        |                     /              \               |             |  \                 |        "
-        time.sleep(0.25); print "|         /         |                    /                \              |             |   \                |        "
-        time.sleep(0.25); print "|        /          |                   /                  \             |      /      |    \               |        "
-        time.sleep(0.25); print "|       /           |                  /                    \            |     /       |     \              |        "
-        time.sleep(0.25); print "|------/            |_____________    /                      \           |----/        |      \     ________|________"
+        self.notPlaying = True
+        print "|--------           |                            /\                      |----\        |      /            /|        "
+        print "|        \          |                           /  \                     |     \       |     /            / |        "
+        print "|         \         |                          /    \                    |      \      |    /            /  |        "
+        print "|          \        |                         /      \                   |             |   /                |        "
+        print "|           /       |                        /        \                  |             |  /                 |        "
+        print "|------------       |                       /----------\                 |             |-/                  |        "
+        print "|           \       |                      /            \                |             |-\                  |        "
+        print "|          /        |                     /              \               |             |  \                 |        "
+        print "|         /         |                    /                \              |             |   \                |        "
+        print "|        /          |                   /                  \             |      /      |    \               |        "
+        print "|       /           |                  /                    \            |     /       |     \              |        "
+        print "|------/            |_____________    /                      \           |----/        |      \     ________|________"
+
+    def retry(self):
+        playAgain = raw_input("Would You Like To Play Again?(Yepper Pepper/Noper Doper): ")
+        if playAgain == "Yepper Pepper":
+            self.winner = None
+            pygame.display.set_caption("Connect4 Game By Mikey Jacobs And Ozan Mirza FPS: 30")
+            self.acticvated = True
+            self.run(True)
+        else:
+            sys.exit(1)
 
 os.system('clear')
 time.sleep(0.25); print "|======\                _________            |\            |    |\            |   |-----------------        |-------\   -------|-------       /|        "
