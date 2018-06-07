@@ -270,9 +270,6 @@ class connectFour():
             trophy.update(0, 0)
             trophy.draw()
             pygame.display.flip()
-            if self.notPlaying == True:
-                self.retry()
-                self.notPlaying = False
 
     def playerTie(self):
         self.winner = "Tie"
@@ -290,6 +287,7 @@ class connectFour():
         print "  |          |                      |        /                    \                   |           |     \                 /    |  "
         print "  |          |                      |       /                      \                  |           |      \               /   |===|"
         print "__|__        |              ________/      /                        \                 |           |       \_____________/    |===|"
+        print "\n To Play Again, Click X, And Click Up And Enter"
 
     def redPlayerWon(self):
         self.winner = "Red"
@@ -308,6 +306,7 @@ class connectFour():
         print "|                   \         |                      |  =/                       \                /              |  /          |    |             "
         print "|                    \        |                      | =/                         \              /               | /           |    |             "
         print "|                     \       |------------          |=/                           \____________/                |/            |    |-------------"
+        print "\n To Play Again, Click X, And Click Up And Enter"
 
     def blackPlayerWon(self):
         self.winner = "Black"
@@ -324,6 +323,7 @@ class connectFour():
         print "|        /          |                   /                  \             |      /      |    \               |        "
         print "|       /           |                  /                    \            |     /       |     \              |        "
         print "|------/            |_____________    /                      \           |----/        |      \     ________|________"
+        print "\n To Play Again, Click X, And Click Up And Enter"
 
     def retry(self):
         playAgain = raw_input("Would You Like To Play Again?(Yepper Pepper/Noper Doper): ")
