@@ -49,6 +49,7 @@ class connectFour():
         clicked = False
         placeBlack = []
         placeRed = []
+        count = 0
         grid = [[None, None, None, None, None, None],
                 [None, None, None, None, None, None],
                 [None, None, None, None, None, None],
@@ -270,6 +271,10 @@ class connectFour():
             trophy.update(0, 0)
             trophy.draw()
             pygame.display.flip()
+            count += 1
+            if count == 20:
+                time.sleep(10)
+                self.retry
 
     def playerTie(self):
         self.winner = "Tie"
@@ -287,7 +292,7 @@ class connectFour():
         print "  |          |                      |        /                    \                   |           |     \                 /    |  "
         print "  |          |                      |       /                      \                  |           |      \               /   |===|"
         print "__|__        |              ________/      /                        \                 |           |       \_____________/    |===|"
-        print "\n To Play Again, Click X, And Click Up And Enter"
+        print "\nWait 10 seconds to restart!!"
 
     def redPlayerWon(self):
         self.winner = "Red"
@@ -306,7 +311,7 @@ class connectFour():
         print "|                   \         |                      |  =/                       \                /              |  /          |    |             "
         print "|                    \        |                      | =/                         \              /               | /           |    |             "
         print "|                     \       |------------          |=/                           \____________/                |/            |    |-------------"
-        print "\n To Play Again, Click X, And Click Up And Enter"
+        print "\nWait 10 seconds to restart!!"
 
     def blackPlayerWon(self):
         self.winner = "Black"
@@ -323,7 +328,7 @@ class connectFour():
         print "|        /          |                   /                  \             |      /      |    \               |        "
         print "|       /           |                  /                    \            |     /       |     \              |        "
         print "|------/            |_____________    /                      \           |----/        |      \     ________|________"
-        print "\n To Play Again, Click X, And Click Up And Enter"
+        print "\nWait 10 seconds to restart!!"
 
     def retry(self):
         playAgain = raw_input("Would You Like To Play Again?(Yepper Pepper/Noper Doper): ")
