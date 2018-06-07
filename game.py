@@ -18,6 +18,7 @@ class connectFour():
         pygame.init()
         self.acticvated = True
         self.backgroundColor = (0, 255, 255)
+        self.winner = None # "Red" / "Black" / "Tie"
         self.lobster = pygame.font.Font('Lobster-Regular.ttf', 40)
         self.textsurface = self.lobster.render("THIS PROJECT IS BETTER THAN THE OTHERS", False, (255, 69, 0))
         self.screen_width = width
@@ -211,7 +212,7 @@ class connectFour():
                     if grid[i][j] != None:
                         tie_checker += 1
                         if tie_checker == 36:
-                            self.acticvated = False
+                            running = False
                             self.playerTie()
 
             for i in range(0, len(grid)):
@@ -219,37 +220,64 @@ class connectFour():
                     if not i > 2:
                         if grid[i+1][j] == grid[i][j] and grid[i+2][j] == grid[i][j] and grid[i+3][j] == grid[i][j]:
                             if grid[i][j] == "BLACK":
-                                self.acticvated = False
+                                running = False
                                 self.blackPlayerWon()
                             elif grid[i][j] == "RED":
-                                self.acticvated = False
+                                running = False
                                 self.redPlayerWon()
                     elif not j > 2:
                         if grid[i][j+1] == grid[i][j] and grid[i][j+2] == grid[i][j] and grid[i][j+3] == grid[i][j]:
                             if grid[i][j] == "BLACK":
-                                self.acticvated = False
+                                running = False
                                 self.blackPlayerWon()
                             elif grid[i][j] == "RED":
-                                self.acticvated = False
+                                running = False
                                 self.redPlayerWon()
                     elif not j > 2 and not i > 2:
                         if grid[i+1][j+1] == grid[i][j] and grid[i+2][j+2] == grid[i][j] and grid[i+3][j+3] == grid[i][j]:
                             if grid[i][j] == "BLACK":
-                                self.acticvated = False
+                                running = False
                                 self.blackPlayerWon()
                             elif grid[i][j] == "RED":
-                                self.acticvated = False
+                                running = False
                                 self.redPlayerWon()
                     elif not j < 3 and not i > 2:
                         if grid[i+1][j-1] == grid[i][j] and grid[i+2][j-2] == grid[i][j] and grid[i+3][j-3] == grid[i][j]:
                             if grid[i][j] == "BLACK":
-                                self.acticvated = False
+                                running = False
                                 self.blackPlayerWon()
                             elif grid[i][j] == "RED":
-                                self.activated = False
                                 self.redPlayerWon()
 
+        while running == False or self.acticvated == False:
+            if self.winner == "Red":
+                self.screen.fill((255, 0, 0))
+            elif self.winner == "Black":
+                self.screen.fill((0, 0, 0))
+            elif self.winner == "Tie":
+                self.screen.fill((random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)))
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    sys.exit(0)
+                elif not hasattr(event, 'key'): # if its not a key event then ignore it
+                    continue
+            trophy = GameSprite(self.screen, 'winner.png', (self.screen_width / 2, self.screen_height / 2))
+            trophy.centerx = self.screen_width / 2
+            trophy.centery = self.screen_height / 2
+            trophy.update(0, 0)
+            trophy.draw()
+            pygame.display.flip()
+
+        if not self.winner == None:
+            playAgain = raw_input("\nWould You Like To Play Again?(Yepper Pepper/Noper Doper): ")
+            if playAgain == "Yepper Pepper":
+                self.winner = None
+                self.run(True)
+            else:
+                sys.exit(0)
+
     def playerTie(self):
+        self.winner = "Tie"
         time.sleep(0.25); print "_____   ____________    |                              /\                    ==================                                |  "
         time.sleep(0.25); print "  |          |        __|                             /  \                            |                                        |  "
         time.sleep(0.25); print "  |          |                                       /    \                           |                                        |  "
@@ -263,28 +291,15 @@ class connectFour():
         time.sleep(0.25); print "  |          |                      |        /                    \                   |           |     \                 /    |  "
         time.sleep(0.25); print "  |          |                      |       /                      \                  |           |      \               /   |===|"
         time.sleep(0.25); print "__|__        |              ________/      /                        \                 |           |       \_____________/    |===|"
-        notPlaying = True
-        playAgain = raw_input("\n Would You Like To Play Again?(Yepper Pepper/Noper Doper): ")
-        while notPlaying == True:
-            if playAgain == "Yepper Pepper":
-                notPlaying = False
-                self.acticvated = True
-                self.run(True)
-            elif playAgain == "Noper Doper":
-                notPlaying = False
-                sys.exit(0)
-            else:
-                notPlaying = False
-                sys.exit(0)
-            self.backgroundColor = (0, 0, 0)
-            self.screen.fill(backgroundColor)
-            trophy = GameSprite(self.screen, 'winner.png', (0, 0))
-            trophy.centerx = self.screen_width / 2
-            trophy.centery = self.screen_height / 2
-            trophy.update(0, 0)
-            trophy.draw()
+        playAgain = raw_input("\nWould You Like To Play Again?(Yepper Pepper/Noper Doper): ")
+        if playAgain == "Yepper Pepper":
+            self.winner = None
+            self.run(True)
+        else:
+            sys.exit(0)
 
     def redPlayerWon(self):
+        self.winner = "Red"
         time.sleep(0.25); print "|  /=======\                  |------------          |=\                          ________________                                                "
         time.sleep(0.25); print "| /         \                 |                      | =\                        /                \              |            /|    |------------ "
         time.sleep(0.25); print "|/           \                |                      |  =\                      /                  \             |           / |    |             "
@@ -299,27 +314,9 @@ class connectFour():
         time.sleep(0.25); print "|                   \         |                      |  =/                       \                /              |  /          |    |             "
         time.sleep(0.25); print "|                    \        |                      | =/                         \              /               | /           |    |             "
         time.sleep(0.25); print "|                     \       |------------          |=/                           \____________/                |/            |    |-------------"
-        notPlaying = True
-        playAgain = raw_input("\n Would You Like To Play Again?(Yepper Pepper/Noper Doper): ")
-        while notPlaying == True:
-            if playAgain == "Yepper Pepper":
-                notPlaying = False
-                self.acticvated = True
-                self.run(True)
-            elif playAgain == "Noper Doper":
-                notPlaying = False
-                sys.exit(0)
-            else:
-                notPlaying = False
-                sys.exit(0)
-            self.backgroundColor = (0, 0, 0)
-            trophy = GameSprite(self.screen, 'winner.png', (0, 0))
-            trophy.centerx = self.screen_width / 2
-            trophy.centery = self.screen_height / 2
-            trophy.update(0, 0)
-            trophy.draw()
 
     def blackPlayerWon(self):
+        self.winner = "Black"
         time.sleep(0.25); print "|--------           |                            /\                      |----\        |      /            /|        "
         time.sleep(0.25); print "|        \          |                           /  \                     |     \       |     /            / |        "
         time.sleep(0.25); print "|         \         |                          /    \                    |      \      |    /            /  |        "
@@ -332,25 +329,6 @@ class connectFour():
         time.sleep(0.25); print "|        /          |                   /                  \             |      /      |    \               |        "
         time.sleep(0.25); print "|       /           |                  /                    \            |     /       |     \              |        "
         time.sleep(0.25); print "|------/            |_____________    /                      \           |----/        |      \     ________|________"
-        notPlaying = True
-        playAgain = raw_input("\n Would You Like To Play Again?(Yepper Pepper/Noper Doper): ")
-        while notPlaying == True:
-            if playAgain == "Yepper Pepper":
-                notPlaying = False
-                self.acticvated = True
-                self.run(True)
-            elif playAgain == "Noper Doper":
-                notPlaying = False
-                sys.exit(0)
-            else:
-                notPlaying = False
-                sys.exit(0)
-            self.backgroundColor = (0, 0, 0)
-            trophy = GameSprite(self.screen, 'winner.png', (0, 0))
-            trophy.centerx = self.screen_width / 2
-            trophy.centery = self.screen_height / 2
-            trophy.update(0, 0)
-            trophy.draw()
 
 os.system('clear')
 time.sleep(0.25); print "|======\                _________            |\            |    |\            |   |-----------------        |-------\   -------|-------       /|        "
@@ -375,8 +353,6 @@ if play == "Yepper Pepper":
     print "* Who Ever Is Up, Click On Your Coin, Then Click On THe Arrow That You Want The Column To Be In."
     time.sleep(1)
     print "* The Next Player Goes, And So On"
-    time.sleep(1)
-    print "* Who Wins, May Claim Their Trophy By Clicking On It, Then Look Back To This Terminal Window."
     time.sleep(1)
     ok = raw_input("OK? (Yepper Pepper/Noper Doper): ")
     if ok == "Yepper Pepper":
